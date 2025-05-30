@@ -119,7 +119,7 @@ function Home() {
   ];
 
   return (
-    <div className='cursor-grab grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 auto-rows-min gap-3 p-3 sm:p-4 lg:p-6 min-h-screen w-full max-w-5xl mx-auto'>
+    <div className='cursor-pointer grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 auto-rows-min gap-3 p-3 sm:p-4 lg:p-6 min-h-screen w-full max-w-5xl mx-auto'>
    
    
     <motion.div 
@@ -138,8 +138,7 @@ function Home() {
    viewport={{
     once:true
   }}
-  drag
-  dragConstraints={{ top: 4, bottom: 4, left: 4, right: 4 }}
+ 
   className=' backdrop-blur-3xl   overflow-hidden border bg-neutral-300 dark:bg-[#121212]  border-zinc-600 rounded-lg p-4 sm:p-6 col-span-1 sm:col-span-2 lg:col-span-2'
 >
   
@@ -221,8 +220,7 @@ function Home() {
 
 
      <motion.div
-  drag
-  dragConstraints={{ top: 4, bottom: 4, left: 4, right: 4 }}
+ 
   initial={{
     y:-100,
     
@@ -276,15 +274,15 @@ function Home() {
    viewport={{
     once:true
   }}
-  drag
-  dragConstraints={{ top: 4, bottom: 4, left: 4, right: 4 }}
+
+
   className=' relative rounded-md  p-4 sm:p-6 col-span-1 lg:col-span-1  shadow-purple-600'
 >
 
-  <h3 className='text-2xl sm:text-xl font-semibold mb-3 text-black dark:text-white tracking-tighter font-sans'>
-    Socials</h3>
+  <h1 className='text-4xl sm:text-6xl font-semibold mb-3 text-black dark:text-white tracking-tighter font-sans'>
+    Socials</h1>
    
-  <div className='flex  flex-wrap gap-0.5 sm:grid sm:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4 bg-neutral-900 py-6 px-2 h-fit rounded-2xl inset-shadow-2xs inset-shadow-black'>
+  <div className='flex  flex-wrap gap-0.5 sm:grid sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 bg-neutral-900 py-6 px-2 h-fit rounded-2xl inset-shadow-2xs inset-shadow-black'>
     {Links.map((link, idx) => (
       <a
       key={idx}
@@ -300,7 +298,7 @@ function Home() {
       </a>
     ))}
   </div>
- <div className='w-auto h-auto bg-green-300 text-black font-sans  justify-center items-center sm:w-fit tracking-tight font-bold mt-2 py-2 px-2 rounded-2xl flex-col'><p className='flex-col'>{formattedTime}</p></div>
+
 </motion.div>
    <motion.div
     initial={{
@@ -318,8 +316,7 @@ function Home() {
    viewport={{
     once:true
   }}
-  drag
-  dragConstraints={{ top: 4, bottom: 4, left: 4, right: 4 }}
+  
   className=' dark:bg-[#131212] group border rounded-lg p-4 sm:p-6 lg:p-7 col-span-1 sm:col-span-2 lg:col-span-2 lg:row-span-2 border-zinc-700'
 >
 
@@ -381,13 +378,7 @@ function Home() {
 
       
       <motion.div 
-      drag
-      dragConstraints={{
-        top:4,
-        bottom:4,
-        left:4,
-        right:4
-      }}
+     
        initial={{
     x:100,
     
