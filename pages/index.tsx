@@ -1,7 +1,11 @@
 import Image from "next/image";
 import { Geist, Geist_Mono } from "next/font/google";
 import Home from "@/components/Home";
+import Head from "next/head";
 
+export const metadata = {
+      title: 'Default Title - My Next.js App',
+    };
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -14,8 +18,12 @@ const geistMono = Geist_Mono({
 
 export default function Homef() {
   return (
-    <div>
-      <Home></Home>
-    </div>
-  );
+    <>
+      <Head>
+        <title>Aswin</title>
+      </Head>
+      <div className={`${geistSans.variable} ${geistMono.variable}`}>
+        <Home />
+      </div>
+    </>)
 }

@@ -1,6 +1,8 @@
 "use client"
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { Globe } from "lucide-react";
+import { BsGithub } from "react-icons/bs";
 // Required if using React Router
 
 const Projects = () => {
@@ -107,35 +109,60 @@ const SpotlightCard = ({ project, variants }) => {
 
   const handleMouseMove = (e) => {
     const rect = e.currentTarget.getBoundingClientRect();
-    setPos({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    setPos({ x, y });
+
+    // Set CSS variables dynamically
+    e.currentTarget.style.setProperty("--x", `${x}px`);
+    e.currentTarget.style.setProperty("--y", `${y}px`);
   };
 
   return (
-    <motion.a
-      href={project.link}
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label={`Visit ${project.name}`}
+    <motion.div
       onMouseMove={handleMouseMove}
-      className=" rounded-lg relative group overflow-hidden p-6 border dark:border-neutral-700 shadow-md  bg-white dark:bg-neutral-900 transition-all duration-300 ease-in-out"
-      style={{
-        "--x": `${pos.x}px`,
-        "--y": `${pos.y}px`,
-      }}
       variants={variants}
+      className="rounded-lg relative group overflow-hidden p-6 border dark:border-neutral-700 shadow-md bg-white dark:bg-neutral-900 transition-all duration-300 ease-in-out"
     >
+      {/* Spotlight effect */}
       <div
         className="pointer-events-none absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
         style={{
-          background: `radial-gradient(circle at var(--x) var(--y),	blue, transparent 90%)`,
-          
+          background: `radial-gradient(circle at var(--x) var(--y), rgba(99, 102, 241, 0.2), transparent 80%)`,
         }}
       />
 
-      <div className="relative z-10 w-fill h-full px-2 py-2">
-        <h3 className="text-lg font-sans tracking-tighter text-black dark:text-white font-bold mb-2">
-          {project.name}
-        </h3>
+      {/* Content */}
+      <div className="relative z-10 w-full h-full px-2 py-2">
+        <div className="flex items-center justify-between mb-2">
+          <h3 className="text-lg font-bold font-sans text-black dark:text-white tracking-tight">
+            {project.name}
+          </h3>
+          <div className="flex gap-3">
+            <a
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Visit ${project.name}`}
+            >
+              <button className="text-black dark:text-white transition">
+                <Globe />
+              </button>
+            </a>
+            {project.github && (
+              <a
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`GitHub for ${project.name}`}
+              >
+                <button className="text-black dark:text-white transition hover:text-violet-500">
+                  <BsGithub size={22} />
+                </button>
+              </a>
+            )}
+          </div>
+        </div>
         <p className="text-black dark:text-neutral-300 mb-4">
           {project.description}
         </p>
@@ -143,15 +170,16 @@ const SpotlightCard = ({ project, variants }) => {
           {project.techStack.map((tech, idx) => (
             <span
               key={idx}
-              className=" font-medium bg-neutral-700 dark:bg-neutral-600 text-sm text-neutral-300 dark:text-white py-1 px-2 rounded-lg"
+              className="font-medium bg-neutral-700 dark:bg-neutral-600 text-sm text-neutral-300 dark:text-white py-1 px-2 rounded-lg"
             >
               {tech}
             </span>
           ))}
         </div>
       </div>
-    </motion.a>
+    </motion.div>
   );
 };
+
 
 export default Projects;
