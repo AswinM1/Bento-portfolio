@@ -3,7 +3,11 @@
 :root {
   --background: #ffffff;
   --foreground: #181818;
-  --noise-bg: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAI0lEQVQYV2NkYGD4z0AEYBxVSFUBmBhFgZE0DAwMDAwMAAAHMAAf9g7R2AAAAAElFTkSuQmCC");
+  
+}
+/* styles/globals.css */
+.noise {
+  filter: url(#noise-filter);
 }
 
 @theme inline {
