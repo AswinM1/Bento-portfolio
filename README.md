@@ -1,2 +1,1 @@
-# Bento-portfolio
-A bento grid portfolio
+Personal portfolio made with Next.js,Framer and Tailwindcss
