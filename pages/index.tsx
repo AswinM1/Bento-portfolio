@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { Geist, Geist_Mono } from "next/font/google";
 import Home from "@/components/Home";
 import Head from "next/head";
@@ -18,12 +17,13 @@ const geistMono = Geist_Mono({
 
 export default function Homef() {
   return (
-    <>
+    <div>
       <Head>
         <title>Aswin</title>
       </Head>
       <div className={`${geistSans.variable} ${geistMono.variable}`}>
         <Home />
       </div>
-    </>)
+    </div>
+    )
 }
