@@ -63,7 +63,7 @@ function Links() {
     <span className=" block w-0 h-1 bg-violet-500 transition-all duration-500 group-hover:w-full absolute bottom-0 left-0"></span>
   </h2>
    
-<div className="grid grid-cols-8 md:grid-cols-2 gap-3 px-4 py-2 h-fit rounded-2xl inset-shadow-2xs inset-shadow-black">
+<div className="grid grid-cols-4 md:grid-cols-2 gap-3 px-4 py-2 h-fit rounded-2xl inset-shadow-2xs ">
   {Links.map((link, idx) => (
     <a
       key={idx}
@@ -73,7 +73,7 @@ function Links() {
       className="flex items-center py-6 px-6 gap-2 w-5 h-5 md:w-14 md:h-14 justify-center aspect-square border border-gray-200 dark:border-gray-700 rounded-lg hover:scale-105 dark:hover:scale-105 hover:shadow-sm transition-all duration-200 group"
     >
         
-      <span className="dark:text-gray-400 noise bg-blend-overlay  group-hover:text-black dark:group-hover:text-white transition-colors">
+      <span className="dark:text-gray-400  group-hover:text-black dark:group-hover:text-white transition-colors">
       
         {link.icon}
       </span>
